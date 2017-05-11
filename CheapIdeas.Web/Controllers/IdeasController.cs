@@ -11,37 +11,31 @@ using Microsoft.AspNet.Identity;
 namespace CheapIdeas.Web.Controllers
 {
     //[Authorize]
-    [RoutePrefix("api/ideas")]
     public class IdeasController : ApiController
     {
         private IdeasContext db = new IdeasContext();
 
         // GET: api/Ideas/ForCurrentUser
         [Authorize]
-        [HttpGet]
-        [Route("ForCurrentUser")]
+        [Route("api/Ideas/ForCurrentUser")]
         public IQueryable<Idea> GetIdeasForCurrentUser()
         {
-            var userId = User.Identity.GetUserId();
+            string userId = User.Identity.GetUserId();
 
-            var ideas = db.Ideas.Where(idea => idea.UserId == userId);
-
-            return ideas;
+            return db.Ideas.Where(idea => idea.UserId == userId);
         }
 
         // GET: api/Ideas
-        [Authorize]
-        [HttpGet]
-        [Route("all")]
+        [Authorize(Roles = "Admin, User")]
         public IQueryable<Idea> GetIdeas()
         {
+            string userId = User.Identity.GetUserId();
+
             return db.Ideas;
         }
 
-        // GET: api/Ideas/byId/5
+        // GET: api/Ideas/5
         [Authorize]
-        [HttpGet]
-        [Route("byId")]
         [ResponseType(typeof(Idea))]
         public IHttpActionResult GetIdea(int id)
         {
@@ -56,8 +50,6 @@ namespace CheapIdeas.Web.Controllers
 
         // PUT: api/Ideas/5
         [Authorize]
-        [HttpPut]
-        [Route("edit")]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutIdea(int id, Idea idea)
         {
@@ -69,6 +61,13 @@ namespace CheapIdeas.Web.Controllers
             if (id != idea.Id)
             {
                 return BadRequest();
+            }
+
+            var userId = User.Identity.GetUserId();
+
+            if (userId != idea.UserId)
+            {
+                return StatusCode(HttpStatusCode.Conflict);
             }
 
             db.Entry(idea).State = EntityState.Modified;
@@ -92,11 +91,9 @@ namespace CheapIdeas.Web.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Ideas/add
-        [Authorize]
-        [HttpPost]
-        [Route("add")]
+        // POST: api/Ideas
         [ResponseType(typeof(Idea))]
+        [Authorize]
         public IHttpActionResult PostIdea(Idea idea)
         {
             if (!ModelState.IsValid)
@@ -104,9 +101,8 @@ namespace CheapIdeas.Web.Controllers
                 return BadRequest(ModelState);
             }
 
-            var userId = User.Identity.GetUserId();
+            string userId = User.Identity.GetUserId();
             idea.UserId = userId;
-            idea.UserName = User.Identity.Name;
 
             db.Ideas.Add(idea);
             db.SaveChanges();
@@ -114,10 +110,8 @@ namespace CheapIdeas.Web.Controllers
             return CreatedAtRoute("DefaultApi", new { id = idea.Id }, idea);
         }
 
-        // DELETE: api/Ideas/delete/5
+        // DELETE: api/Ideas/5
         [Authorize]
-        [HttpDelete]
-        [Route("delete")]
         [ResponseType(typeof(Idea))]
         public IHttpActionResult DeleteIdea(int id)
         {
@@ -125,6 +119,12 @@ namespace CheapIdeas.Web.Controllers
             if (idea == null)
             {
                 return NotFound();
+            }
+
+            string userId = User.Identity.GetUserId();
+            if (userId != idea.UserId)
+            {
+                return StatusCode(HttpStatusCode.Conflict);
             }
 
             db.Ideas.Remove(idea);
