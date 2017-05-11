@@ -7,6 +7,7 @@ OAuth Overview with ASP.NET Identity : https://youtu.be/UToBKlnig4M
 <img src="https://github.com/HoussemDellai/CheapIdeas/blob/master/oauth%20en.jpg?raw=true" />
 </a>
 
+</br>
 
 Signup user to ASP.NET Identity from Xamarin Forms : https://youtu.be/t0v4srA4NhA
 
@@ -14,6 +15,7 @@ Signup user to ASP.NET Identity from Xamarin Forms : https://youtu.be/t0v4srA4Nh
 <img src="https://github.com/HoussemDellai/CheapIdeas/blob/master/signup.jpg?raw=true" />
 </a>
 
+</br>
 
 Login user to ASP.NET Identity from Xamarin Forms : https://youtu.be/Nkccb9ODr_A
 
