@@ -26,11 +26,9 @@ namespace CheapIdeas.Web.Controllers
         }
 
         // GET: api/Ideas
-        [Authorize(Roles = "Admin, User")]
+        [Authorize]
         public IQueryable<Idea> GetIdeas()
         {
-            string userId = User.Identity.GetUserId();
-
             return db.Ideas;
         }
 

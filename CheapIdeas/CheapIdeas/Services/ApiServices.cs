@@ -5,6 +5,7 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using CheapIdeas.Models;
 using Newtonsoft.Json;
+using CheapIdeas.Models;
 
 namespace CheapIdeas.Services
 {
@@ -59,6 +60,19 @@ namespace CheapIdeas.Services
             var content = await response.Content.ReadAsStringAsync();
 
             Debug.WriteLine(content);
+        }
+
+        public async Task<List<Idea>> GetIdeasAsync(string accessToken)
+        {
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+                "Bearer", accessToken);
+
+            var json = await client.GetStringAsync("http://localhost:51374/api/ideas");
+
+            var ideas = JsonConvert.DeserializeObject<List<Idea>>(json);
+
+            return ideas;
         }
     }
 }
