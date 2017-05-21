@@ -51,7 +51,7 @@ namespace CheapIdeas.Services
             };
 
             var request = new HttpRequestMessage(
-                HttpMethod.Post, "http://localhost:51374/Token");
+                HttpMethod.Post, Constants.BaseApiAddress + "Token");
 
             request.Content = new FormUrlEncodedContent(keyValues);
 
@@ -75,7 +75,7 @@ namespace CheapIdeas.Services
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
                 "Bearer", accessToken);
 
-            var json = await client.GetStringAsync("http://localhost:51374/api/ideas");
+            var json = await client.GetStringAsync(Constants.BaseApiAddress + "api/ideas");
 
             var ideas = JsonConvert.DeserializeObject<List<Idea>>(json);
 

@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:CheapIdeas.ViewModels;assembly=CheapIdeas"
-             x:Class="CheapIdeas.Views.IdeasPage">
+             x:Class="CheapIdeas.Views.IdeasPage"
+             Title="All Ideas">
     
     <ContentPage.BindingContext>
         <viewModels:IdeasViewModel />
@@ -20,7 +21,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout>
+                        <StackLayout Padding="20,10">
                             <Label Text="{Binding Title}" />
                             <Label Text="{Binding Category}" />
                             <Label Text="{Binding Description}" />
