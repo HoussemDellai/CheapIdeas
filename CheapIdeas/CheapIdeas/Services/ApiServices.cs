@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CheapIdeas.Models;
 using Newtonsoft.Json;
 using CheapIdeas.Models;
+using Newtonsoft.Json.Linq;
 
 namespace CheapIdeas.Services
 {
@@ -40,7 +41,7 @@ namespace CheapIdeas.Services
             return false;
         }
 
-        public async Task LoginAsync(string userName, string password)
+        public async Task<string> LoginAsync(string userName, string password)
         {
             var keyValues = new List<KeyValuePair<string, string>>
             {
@@ -59,7 +60,13 @@ namespace CheapIdeas.Services
 
             var content = await response.Content.ReadAsStringAsync();
 
+            JObject jwtDynamic = JsonConvert.DeserializeObject<dynamic>(content);
+
+            var accessToken = jwtDynamic.Value<string>("access_token");
+
             Debug.WriteLine(content);
+
+            return accessToken;
         }
 
         public async Task<List<Idea>> GetIdeasAsync(string accessToken)

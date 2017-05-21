@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using CheapIdeas.Helpers;
 using CheapIdeas.Models;
 using CheapIdeas.Services;
 using Xamarin.Forms;
@@ -10,11 +11,10 @@ namespace CheapIdeas.ViewModels
 {
     public class IdeasViewModel : INotifyPropertyChanged
     {
-        ApiServices _apiServices = new ApiServices();
+        private readonly ApiServices _apiServices = new ApiServices();
         private List<Idea> _ideas;
 
-        public string AccessToken { get; set; }
-
+        //public string AccessToken { get; set; }
         public List<Idea> Ideas
         {
             get { return _ideas; }
@@ -24,14 +24,14 @@ namespace CheapIdeas.ViewModels
                 OnPropertyChanged();
             }
         }
-
         public ICommand GetIdeasCommand
         {
             get
             {
                 return new Command(async () =>
                 {
-                    Ideas = await _apiServices.GetIdeasAsync(AccessToken);
+                    var accessToken = Settings.AccessToken;
+                    Ideas = await _apiServices.GetIdeasAsync(accessToken);
                 });
             }
         }

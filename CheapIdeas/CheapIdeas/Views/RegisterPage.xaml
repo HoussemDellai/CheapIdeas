@@ -14,7 +14,7 @@
                  Spacing="20"
                  Padding="20">
 
-        <Entry Text="{Binding Email}"
+        <Entry Text="{Binding Username}"
                Placeholder="username" />
         <Entry Text="{Binding Password}" 
                Placeholder="password"

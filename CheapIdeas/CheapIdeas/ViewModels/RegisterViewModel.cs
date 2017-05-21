@@ -1,4 +1,5 @@
 ﻿using System.Windows.Input;
+using CheapIdeas.Helpers;
 using CheapIdeas.Services;
 using Xamarin.Forms;
 
@@ -8,12 +9,10 @@ namespace CheapIdeas.ViewModels
     {
         private readonly ApiServices _apiServices = new ApiServices();
 
-        public string Email { get; set; }
+        public string Username { get; set; }
         public string Password { get; set; }
         public string ConfirmPassword { get; set; }
-
         public string Message { get; set; }
-
         public ICommand RegisterCommand
         {
             get
@@ -21,7 +20,10 @@ namespace CheapIdeas.ViewModels
                 return new Command(async () =>
                 {
                     var isRegistered = await _apiServices.RegisterUserAsync
-                        (Email, Password, ConfirmPassword);
+                        (Username, Password, ConfirmPassword);
+
+                    Settings.Username = Username;
+                    Settings.Password = Password;
 
                     if (isRegistered)
                     {

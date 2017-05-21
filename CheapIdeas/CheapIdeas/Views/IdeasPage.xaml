@@ -10,7 +10,7 @@
 
     <StackLayout>
 
-        <Entry Text="{Binding AccessToken}" />
+        <!--<Entry Text="{Binding AccessToken}" />-->
 
         <Button Command="{Binding GetIdeasCommand}"
                 Text="Get All Ideas" />
