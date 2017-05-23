@@ -15,6 +15,9 @@
 
         <Button Command="{Binding GetIdeasCommand}"
                 Text="Get All Ideas" />
+        
+        <Button Text="Add new Idea"
+                Clicked="NavigateToAddNewIdea_Clicked"/>
 
         <ListView ItemsSource="{Binding Ideas}"
                   HasUnevenRows="True">

@@ -81,5 +81,17 @@ namespace CheapIdeas.Services
 
             return ideas;
         }
+
+        public async Task PostIdeaAsync(Idea idea, string accessToken)
+        {
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+            var json = JsonConvert.SerializeObject(idea);
+            HttpContent content = new StringContent(json);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            var response = await client.PostAsync(Constants.BaseApiAddress + "api/Ideas", content);
+        }
     }
 }

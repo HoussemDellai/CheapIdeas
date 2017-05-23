@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:CheapIdeas.ViewModels;assembly=CheapIdeas"
+             x:Class="CheapIdeas.Views.AddIdeaPage">
+    
+    <ContentPage.BindingContext>
+        <viewModels:AddIdeaViewModel/>
+    </ContentPage.BindingContext>
+    
+    <StackLayout VerticalOptions="Center">
+        
+        <Entry Text="{Binding Title}"/>
+        <Entry Text="{Binding Description}"/>
+        <Entry Text="{Binding Category}"/>
+        
+        <Button Command="{Binding AddCommand}"
+                Text="Add Idea"/>
+        
+    </StackLayout>
+    
+</ContentPage>
