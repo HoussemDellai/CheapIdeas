@@ -42,6 +42,7 @@
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Models\Idea.cs" />
     <Compile Include="ViewModels\AddIdeaViewModel.cs" />
+    <Compile Include="ViewModels\EditIdeaViewModel.cs" />
     <Compile Include="ViewModels\IdeasViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="Models\RegisterBindingModel.cs" />
@@ -50,6 +51,9 @@
     <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="Views\AddIdeaPage.xaml.cs">
       <DependentUpon>AddIdeaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditIdeaPage.xaml.cs">
+      <DependentUpon>EditIdeaPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\IdeasPage.xaml.cs">
       <DependentUpon>IdeasPage.xaml</DependentUpon>
@@ -119,6 +123,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\AddIdeaPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\EditIdeaPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

@@ -20,7 +20,8 @@
                 Clicked="NavigateToAddNewIdea_Clicked"/>
 
         <ListView ItemsSource="{Binding Ideas}"
-                  HasUnevenRows="True">
+                  HasUnevenRows="True"
+                  ItemTapped="IdeasListView_ItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

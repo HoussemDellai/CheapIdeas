@@ -1,4 +1,5 @@
 ﻿using System;
+using CheapIdeas.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,6 +16,12 @@ namespace CheapIdeas.Views
         private async void NavigateToAddNewIdea_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AddIdeaPage());
+        }
+
+        private async void IdeasListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var idea = e.Item as Idea;
+            await Navigation.PushAsync(new EditIdeaPage(idea));
         }
     }
 }
