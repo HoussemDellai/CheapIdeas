@@ -6,9 +6,9 @@ using Xamarin.Forms.Xaml;
 namespace CheapIdeas.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class EditIdeaPage : ContentPage
+    public partial class EditOrDeleteIdeaPage : ContentPage
     {
-        public EditIdeaPage(Idea idea)
+        public EditOrDeleteIdeaPage(Idea idea)
         {
             InitializeComponent();
 

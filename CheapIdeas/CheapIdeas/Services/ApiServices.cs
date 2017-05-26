@@ -106,5 +106,14 @@ namespace CheapIdeas.Services
             var response = await client.PutAsync(
                 Constants.BaseApiAddress + "api/Ideas/" + idea.Id, content);
         }
+
+        public async Task DeleteIdeaAsync(int ideaId, string accessToken)
+        {
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            
+            var response = await client.DeleteAsync(
+                Constants.BaseApiAddress + "api/Ideas/" + ideaId);
+        }
     }
 }

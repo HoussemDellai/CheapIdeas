@@ -21,7 +21,7 @@ namespace CheapIdeas.Views
         private async void IdeasListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var idea = e.Item as Idea;
-            await Navigation.PushAsync(new EditIdeaPage(idea));
+            await Navigation.PushAsync(new EditOrDeleteIdeaPage(idea));
         }
     }
 }

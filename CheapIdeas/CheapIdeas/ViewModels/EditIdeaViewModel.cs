@@ -21,5 +21,15 @@ namespace CheapIdeas.ViewModels
                 });
             }
         }
+        public ICommand DeleteCommand
+        {
+            get
+            {
+                return new Command(async () =>
+                {
+                    await _apiServices.DeleteIdeaAsync(Idea.Id, Settings.AccessToken);
+                });
+            }
+        }
     }
 }

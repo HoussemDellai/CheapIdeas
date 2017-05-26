@@ -52,8 +52,8 @@
     <Compile Include="Views\AddIdeaPage.xaml.cs">
       <DependentUpon>AddIdeaPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\EditIdeaPage.xaml.cs">
-      <DependentUpon>EditIdeaPage.xaml</DependentUpon>
+    <Compile Include="Views\EditOrDeleteIdeaPage.xaml.cs">
+      <DependentUpon>EditOrDeleteIdeaPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\IdeasPage.xaml.cs">
       <DependentUpon>IdeasPage.xaml</DependentUpon>
@@ -128,7 +128,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\EditIdeaPage.xaml">
+    <EmbeddedResource Include="Views\EditOrDeleteIdeaPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
