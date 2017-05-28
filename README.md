@@ -33,7 +33,16 @@ Invoke protected web services : https://youtu.be/T4FI1LgCqn0
 
 </br>
 
+Register Access Token in Xamarin Forms : https://youtu.be/zqS9EjuekDs
+
+<a href="https://youtu.be/zqS9EjuekDs">
+<img src="https://github.com/HoussemDellai/CheapIdeas/blob/master/items/Register%20access%20Token%20-%20Houssem%20Dellai.png?raw=true" />
+</a>
+
+</br>
+
 Create authenticated HTTP Post request : https://youtu.be/Mg4qvVBXfrI
+
 <a href="https://youtu.be/Mg4qvVBXfrI">
 <img src="https://github.com/HoussemDellai/CheapIdeas/blob/master/items/Post%20HTTP%20-%20Houssem%20Dellai.png?raw=true" />
 </a>
@@ -41,6 +50,7 @@ Create authenticated HTTP Post request : https://youtu.be/Mg4qvVBXfrI
 </br>
 
 Create authenticated HTTP Delete request : https://youtu.be/Mx68Nk-XdO8
+
 <a href="https://youtu.be/Mx68Nk-XdO8">
 <img src="https://github.com/HoussemDellai/CheapIdeas/blob/master/items/HTTP%20Delete.jpg?raw=true" />
 </a>
