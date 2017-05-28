@@ -31,3 +31,17 @@ Invoke protected web services : https://youtu.be/T4FI1LgCqn0
 <img src="https://github.com/HoussemDellai/CheapIdeas/blob/master/items/invoke.jpg?raw=true" />
 </a>
 
+</br>
+
+Create authenticated HTTP Post request : https://youtu.be/Mg4qvVBXfrI
+<a href="https://youtu.be/Mg4qvVBXfrI">
+<img src="https://github.com/HoussemDellai/CheapIdeas/blob/master/items/Post%20HTTP%20-%20Houssem%20Dellai.png?raw=true" />
+</a>
+
+</br>
+
+Create authenticated HTTP Delete request : https://youtu.be/Mx68Nk-XdO8
+<a href="https://youtu.be/Mx68Nk-XdO8">
+<img src="https://github.com/HoussemDellai/CheapIdeas/blob/master/items/HTTP%20Delete.jpg?raw=true" />
+</a>
+
