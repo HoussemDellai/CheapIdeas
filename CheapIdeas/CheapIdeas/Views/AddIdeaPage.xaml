@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:CheapIdeas.ViewModels;assembly=CheapIdeas"
-             x:Class="CheapIdeas.Views.AddIdeaPage">
+             x:Class="CheapIdeas.Views.AddIdeaPage"
+             Title="Add new idea">
     
     <ContentPage.BindingContext>
         <viewModels:AddIdeaViewModel/>

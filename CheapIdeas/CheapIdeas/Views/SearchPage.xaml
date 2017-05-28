@@ -2,44 +2,41 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:CheapIdeas.ViewModels;assembly=CheapIdeas"
-             x:Class="CheapIdeas.Views.IdeasPage"
-             Title="All Ideas">
+             x:Class="CheapIdeas.Views.SearchPage"
+             Title="Search">
     
     <ContentPage.BindingContext>
-        <viewModels:IdeasViewModel />
+        <viewModels:SearchViewModel/>
     </ContentPage.BindingContext>
 
     <StackLayout Padding="20">
-
-        <!--<Entry Text="{Binding AccessToken}" />-->
-
-        <Button Command="{Binding GetIdeasCommand}"
-                Text="Get All Ideas" />
         
-        <Button Text="Add new Idea"
-                Clicked="NavigateToAddNewIdea_Clicked"/>
+        <SearchBar Text="{Binding Keyword}"
+                   FontSize="30" />
         
-        <Button Text="Search Ideas"
-                Clicked="NavigateToSearchIdea_Clicked"/>
-
+        <Button Command="{Binding SearchCommand}"
+                Text="Search keyword"
+                FontSize="30"
+                TextColor="White"
+                BackgroundColor="DodgerBlue"/>
+        
         <ListView ItemsSource="{Binding Ideas}"
-                  HasUnevenRows="True"
-                  ItemTapped="IdeasListView_ItemTapped">
+                  HasUnevenRows="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="0,10">
                             <Label Text="{Binding Title}"
                                    FontSize="24"
-                                   TextColor="RoyalBlue" />
-                            <Label Text="{Binding Description}" />
-                            <Label Text="{Binding Category}" />
+                                   TextColor="RoyalBlue"/>
+                            <Label Text="{Binding Description}"/>
+                            <Label Text="{Binding Category}"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-
         </ListView>
-
+        
     </StackLayout>
+    
 </ContentPage>

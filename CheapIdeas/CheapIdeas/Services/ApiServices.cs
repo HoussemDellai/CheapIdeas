@@ -115,5 +115,20 @@ namespace CheapIdeas.Services
             var response = await client.DeleteAsync(
                 Constants.BaseApiAddress + "api/Ideas/" + ideaId);
         }
+
+
+        public async Task<List<Idea>> SearchIdeasAsync(string keyword, string accessToken)
+        {
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+                "Bearer", accessToken);
+
+            var json = await client.GetStringAsync(
+                Constants.BaseApiAddress + "api/ideas/Search/" + keyword);
+
+            var ideas = JsonConvert.DeserializeObject<List<Idea>>(json);
+
+            return ideas;
+        }
     }
 }

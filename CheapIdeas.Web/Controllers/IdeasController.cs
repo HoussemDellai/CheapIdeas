@@ -131,6 +131,18 @@ namespace CheapIdeas.Web.Controllers
             return Ok(idea);
         }
 
+        // GET: api/Ideas/Search/blinkist
+        [Authorize]
+        [Route("api/Ideas/Search/{keyword}")]
+        [HttpGet]
+        public IQueryable<Idea> SearchIdeas(string keyword)
+        {
+            // lowercase
+            return db.Ideas
+                .Where(idea => idea.Title.Contains(keyword) 
+                            || idea.Description.Contains(keyword));
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

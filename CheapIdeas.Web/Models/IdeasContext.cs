@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
+﻿using System.Data.Entity;
+using CheapIdeas.Web.Models.Entities;
 
 namespace CheapIdeas.Web.Models
 {
@@ -17,8 +14,9 @@ namespace CheapIdeas.Web.Models
     
         public IdeasContext() : base("name=IdeasContext")
         {
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<IdeasContext>());
         }
 
-        public System.Data.Entity.DbSet<CheapIdeas.Web.Models.Entities.Idea> Ideas { get; set; }
+        public DbSet<Idea> Ideas { get; set; }
     }
 }

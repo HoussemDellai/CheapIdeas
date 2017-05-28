@@ -23,5 +23,10 @@ namespace CheapIdeas.Views
             var idea = e.Item as Idea;
             await Navigation.PushAsync(new EditOrDeleteIdeaPage(idea));
         }
+
+        private async void NavigateToSearchIdea_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SearchPage());
+        }
     }
 }

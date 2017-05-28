@@ -1,4 +1,6 @@
-﻿namespace CheapIdeas.Models
+﻿using System.Collections.Generic;
+
+namespace CheapIdeas.Models
 {
     public class Idea
     {
@@ -8,5 +10,6 @@
         public string Category { get; set; }
 
         public string UserId { get; set; }
+        public string UserName { get; set; }
     }
 }
