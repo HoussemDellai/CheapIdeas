@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace CheapIdeas.Views
@@ -9,6 +10,11 @@ namespace CheapIdeas.Views
         public LoginPage()
         {
             InitializeComponent();
+        }
+
+        private async void NavigateToIdeasPage_OnClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new IdeasPage());
         }
     }
 }

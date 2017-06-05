@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using CheapIdeas.Helpers;
@@ -32,6 +34,23 @@ namespace CheapIdeas.ViewModels
                 {
                     var accessToken = Settings.AccessToken;
                     Ideas = await _apiServices.GetIdeasAsync(accessToken);
+                });
+            }
+        }
+
+        public ICommand LogoutCommand
+        {
+            get
+            {
+                return new Command(() =>
+                {
+                    Settings.AccessToken = string.Empty;
+                    Debug.WriteLine(Settings.Username);
+                    Settings.Username = string.Empty;
+                    Debug.WriteLine(Settings.Password);
+                    Settings.Password = string.Empty;
+
+                    // navigate to LoginPage
                 });
             }
         }

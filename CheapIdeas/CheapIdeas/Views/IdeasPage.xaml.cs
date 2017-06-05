@@ -28,5 +28,10 @@ namespace CheapIdeas.Views
         {
             await Navigation.PushAsync(new SearchPage());
         }
+
+        private async void LogoutMenuItem_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LoginPage());
+        }
     }
 }

@@ -131,13 +131,12 @@ namespace CheapIdeas.Web.Controllers
             return Ok(idea);
         }
 
-        // GET: api/Ideas/Search/blinkist
+        // GET: api/Ideas/Search/keyword
         [Authorize]
         [Route("api/Ideas/Search/{keyword}")]
         [HttpGet]
         public IQueryable<Idea> SearchIdeas(string keyword)
         {
-            // lowercase
             return db.Ideas
                 .Where(idea => idea.Title.Contains(keyword) 
                             || idea.Description.Contains(keyword));

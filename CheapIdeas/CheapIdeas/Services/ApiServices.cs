@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using CheapIdeas.Helpers;
 using CheapIdeas.Models;
 using Newtonsoft.Json;
 using CheapIdeas.Models;
@@ -62,7 +64,12 @@ namespace CheapIdeas.Services
 
             JObject jwtDynamic = JsonConvert.DeserializeObject<dynamic>(content);
 
+            var accessTokenExpiration = jwtDynamic.Value<DateTime>(".expires");
             var accessToken = jwtDynamic.Value<string>("access_token");
+
+            Settings.AccessTokenExpirationDate = accessTokenExpiration;
+
+            Debug.WriteLine(accessTokenExpiration);
 
             Debug.WriteLine(content);
 
@@ -115,7 +122,6 @@ namespace CheapIdeas.Services
             var response = await client.DeleteAsync(
                 Constants.BaseApiAddress + "api/Ideas/" + ideaId);
         }
-
 
         public async Task<List<Idea>> SearchIdeasAsync(string keyword, string accessToken)
         {

@@ -8,19 +8,35 @@
     <ContentPage.BindingContext>
         <viewModels:IdeasViewModel />
     </ContentPage.BindingContext>
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Logout"
+                     Command="{Binding LogoutCommand}"
+                     Clicked="LogoutMenuItem_Clicked"
+                     Priority="1"/>
+    </ContentPage.ToolbarItems>
 
     <StackLayout Padding="20">
 
         <!--<Entry Text="{Binding AccessToken}" />-->
 
         <Button Command="{Binding GetIdeasCommand}"
-                Text="Get All Ideas" />
+                Text="Get All Ideas"
+                TextColor="White"
+                FontSize="30"
+                BackgroundColor="DodgerBlue"/>
         
         <Button Text="Add new Idea"
-                Clicked="NavigateToAddNewIdea_Clicked"/>
+                Clicked="NavigateToAddNewIdea_Clicked"
+                TextColor="White"
+                FontSize="30"
+                BackgroundColor="DeepPink"/>
         
         <Button Text="Search Ideas"
-                Clicked="NavigateToSearchIdea_Clicked"/>
+                Clicked="NavigateToSearchIdea_Clicked"
+                TextColor="White"
+                FontSize="30"
+                BackgroundColor="ForestGreen"/>
 
         <ListView ItemsSource="{Binding Ideas}"
                   HasUnevenRows="True"

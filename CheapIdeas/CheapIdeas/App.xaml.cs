@@ -1,4 +1,6 @@
-﻿using CheapIdeas.Helpers;
+﻿using System;
+using CheapIdeas.Helpers;
+using CheapIdeas.ViewModels;
 using CheapIdeas.Views;
 using Xamarin.Forms;
 
@@ -19,9 +21,15 @@ namespace CheapIdeas
         {
             if (!string.IsNullOrEmpty(Settings.AccessToken))
             {
+                if (Settings.AccessTokenExpirationDate < DateTime.UtcNow.AddHours(1))
+                {
+                    var loginViewModel = new LoginViewModel();
+                    loginViewModel.LoginCommand.Execute(null);
+                }
                 MainPage = new NavigationPage(new IdeasPage());
             }
-            else if (!string.IsNullOrEmpty(Settings.Username) && !string.IsNullOrEmpty(Settings.Password))
+            else if (!string.IsNullOrEmpty(Settings.Username) 
+                  && !string.IsNullOrEmpty(Settings.Password))
             {
                 MainPage = new NavigationPage(new LoginPage());
             }

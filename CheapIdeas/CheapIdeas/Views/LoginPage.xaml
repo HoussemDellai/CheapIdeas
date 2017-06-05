@@ -26,7 +26,10 @@
                 TextColor="White"
                 FontSize="30"
                 BackgroundColor="DeepSkyBlue"/>
-        
+
+        <Button Text="Go to Ideas Page"
+                Clicked="NavigateToIdeasPage_OnClicked" />
+
     </StackLayout>
     
 </ContentPage>

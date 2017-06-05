@@ -1,6 +1,7 @@
 // Helpers/Settings.cs
 using Plugin.Settings;
 using Plugin.Settings.Abstractions;
+using System;
 
 namespace CheapIdeas.Helpers
 {
@@ -49,6 +50,18 @@ namespace CheapIdeas.Helpers
             set
             {
                 AppSettings.AddOrUpdateValue<string>("AccessToken", value);
+            }
+        }
+
+        public static DateTime AccessTokenExpirationDate
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault<DateTime>("AccessTokenExpirationDate", DateTime.UtcNow);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue<DateTime>("AccessTokenExpirationDate", value);
             }
         }
     }
